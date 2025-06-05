@@ -1,5 +1,12 @@
 #!/bin/bash
 
+
+cd ~/Downloads/
+
+wget https://dn721106.ca.archive.org/0/items/win-10-21-h-1-english-x-64_20210711/Win10_21H1_English_x64.iso
+
+cd
+
 # Set the USB device path here
 USB_DEVICE="/dev/sda"
 
@@ -40,6 +47,18 @@ sudo mkdir -p /mnt/iso
 
 echo "Mounting ISO $ISO_PATH to /mnt/iso..."
 sudo mount -o loop "$ISO_PATH" /mnt/iso
+
+
+
+
+
+sudo apt install -y wimtools
+sudo wimlib-imagex split /mnt/iso/sources/install.wim /media/usb/sources/install.swm 4000
+sudo cp -rT --exclude=sources/install.wim /mnt/iso/ /media/usb/
+sudo sync
+
+
+
 
 echo "Copying files from ISO to USB..."
 sudo cp -rT /mnt/iso/ /media/usb/
