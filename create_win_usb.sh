@@ -66,3 +66,21 @@ sudo sync
 
 echo "Done copying. Please wait about 8 minutes for all operations to complete."
 
+
+
+
+
+#SECOND TRY
+
+
+5396* cd ~/Downloads/ventoy-1.1.05
+ 5397* ls
+ 5398* sudo ./VentoyWeb.sh
+ 5399  cp ~/Downloads/Win10_21H1_English_x64.iso /media/ventoy/\n
+ 5400  lsblk -f\n
+ 5401  lsblk -o NAME,LABEL,MOUNTPOINT | grep sda1\n
+ 5402  sudo mkdir -p /media/ventoy\nsudo mount /dev/sda1 /media/ventoy\n
+ 5403  cp ~/Downloads/Win10_21H1_English_x64.iso /media/ventoy/\n
+ 5404  sudo cp ~/Downloads/Win10_21H1_English_x64.iso /media/ventoy/\n
+ 5405* timer 8
+ 5406  sudo umount /media/ventoy\n
